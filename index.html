@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Web Design</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 15px 20px;
+            transition: all 0.3s ease;
+        }
+
+        header .logo {
+            color: #fff;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .navbar {
+            display: flex;
+            gap: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: #ff6347;
+            color: #fff;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+            justify-content: space-around;
+            height: 20px;
+            width: 25px;
+        }
+
+        .hamburger div {
+            height: 3px;
+            background-color: white;
+            border-radius: 5px;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            padding: 30px 20px;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            width: 100%;
+        }
+
+        .text-content h1 {
+            font-size: 34px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .text-content p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .image-content img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .image-content img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer .footer-links {
+            margin-bottom: 10px;
+        }
+
+        footer .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 12px;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        footer .footer-links a:hover {
+            color: #ff6347;
+        }
+
+        footer p {
+            font-size: 14px;
+        }
+
+        .testimonials {
+            background-color: #fff;
+            padding: 50px 20px;
+            text-align: center;
+            margin: 30px 0;
+            border-radius: 10px;
+        }
+
+        .testimonials h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .testimonial {
+            display: inline-block;
+            margin: 0 20px;
+            width: calc(33.33% - 40px);
+            background-color: #f4f4f4;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .testimonial:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+        }
+
+        .testimonial p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .navbar {
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 15px;
+                display: none;
+                width: 100%;
+                background-color: #333;
+                padding: 15px;
+                border-radius: 8px;
+            }
+
+            .navbar.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .content {
+                grid-template-columns: 1fr;
+            }
+
+            .image-content img {
+                width: 100%;
+            }
+
+            .testimonial {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (min-width: 601px) and (max-width: 1024px) {
+            header {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .navbar {
+                flex-direction: row;
+                gap: 20px;
+            }
+
+            .content {
+                grid-template-columns: 1fr;
+            }
+
+            .image-content img {
+                width: 100%;
+            }
+
+            .testimonial {
+                width: calc(50% - 40px);
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (min-width: 1025px) {
+            header {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .navbar {
+                flex-direction: row;
+            }
+
+            .content {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .image-content img {
+                width: 100%;
+            }
+
+            .testimonial {
+                width: calc(33.33% - 40px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">MyLogo</div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav class="navbar">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Blog</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="content">
+            <section class="text-content">
+                <h1>Welcome to Our Website</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla fermentum mauris at elit lacinia, a gravida ipsum dictum. Curabitur ac convallis elit. Vivamus ac odio ut urna sodales cursus.</p>
+                <p>Etiam euismod arcu ac urna iaculis, nec sollicitudin nulla consequat. Sed volutpat auctor augue. Quisque sit amet est ac lorem vulputate gravida.</p>
+                <p><strong>Our mission:</strong> To provide the best user experience with responsive and engaging content, suitable for all devices.</p>
+                <h2>Our Services</h2>
+                <ul>
+                    <li>Web Development</li>
+                    <li>Mobile App Design</li>
+                    <li>SEO Optimization</li>
+                    <li>Brand Strategy</li>
+                </ul>
+            </section>
+            <section class="image-content">
+                <img src="https://www.w3schools.com/w3images/lights.jpg" alt="Website Development">
+            </section>
+        </div>
+    </main>
+
+    <div class="testimonials">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonial">
+            <p>"The team was fantastic! They helped us build a beautiful and functional website, and we couldn't be happier with the results!"</p>
+        </div>
+        <div class="testimonial">
+            <p>"A truly exceptional experience! Professional, fast, and responsive to our needs."</p>
+        </div>
+        <div class="testimonial">
+            <p>"Highly recommend! The web design was exactly what we envisioned, and the process was smooth and easy."</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+        </div>
+        <p>&copy; 2025 MyWebsite. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
